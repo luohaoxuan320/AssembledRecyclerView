@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lehow.assembledrecyclerview.R;
 import com.lehow.assembledrecyclerview.component.ProxyViewHolder;
-
-public class OrderListVH extends ProxyViewHolder {
+public class OrderListVH extends ProxyViewHolder{
     private RecyclerView recyclerView;
     public OrderListVH(@NonNull ViewGroup viewGroup) {
         super(viewGroup, R.layout.item_order_list_vh);

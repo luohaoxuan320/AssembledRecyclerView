@@ -13,7 +13,7 @@ import java.lang.reflect.Type;
  * @param <V>
  * @param <R>
  */
-public abstract class ProxyViewAdapter<P,V extends ProxyViewHolder,R> {
+public abstract class ProxyViewAdapter<P extends IAdapterModel,V extends ProxyViewHolder,R> {
 
     private Class<V> classViewHolder;
 
@@ -24,6 +24,10 @@ public abstract class ProxyViewAdapter<P,V extends ProxyViewHolder,R> {
      */
     public abstract void onBindViewHolder(@NonNull V viewHolder, P entity);
 
+    /**
+     * 获取ViewAdapter对应的ViewHolder的类
+     * @return
+     */
     public Class<V> getVHType(){
         if (classViewHolder == null) {
             Log.i("TAG", "getVHType: "+this.getClass());
@@ -39,3 +43,4 @@ public abstract class ProxyViewAdapter<P,V extends ProxyViewHolder,R> {
         return classViewHolder;
     }
 }
+

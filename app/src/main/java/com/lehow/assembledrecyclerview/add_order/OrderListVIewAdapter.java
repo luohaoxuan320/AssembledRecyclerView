@@ -1,54 +1,49 @@
 package com.lehow.assembledrecyclerview.add_order;
 
 
-import android.util.Log;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.lehow.assembledrecyclerview.R;
+import com.lehow.assembledrecyclerview.component.AssembledAdapter;
+import com.lehow.assembledrecyclerview.component.IAdapterModel;
 import com.lehow.assembledrecyclerview.component.ProxyViewAdapter;
 import com.lehow.assembledrecyclerview.component.ProxyViewHolder;
-import com.lehow.assembledrecyclerview.component.VHPoolVM;
-
-public class OrderListVIewAdapter extends ProxyViewAdapter<OrderListModel,OrderListVH, Void> {
+public class OrderListVIewAdapter extends ProxyViewAdapter<OrderListModel,OrderListVH,Void> {
 
     @Override
     public void onBindViewHolder(@NonNull OrderListVH viewHolder, OrderListModel entity) {
-        viewHolder.setAdapter(new InnerAdapter());
+        viewHolder.setAdapter(new InnerAdapter2());
     }
 
-    class InnerAdapter extends RecyclerView.Adapter<InnerHolder>{
-        private VHPoolVM vhPoolVM;
+
+    class InnerAdapter2 extends AssembledAdapter {
+
+        @Override
+        public IAdapterModel getAdapterModel(int position) {
+            return null;
+        }
+
         @NonNull
         @Override
-        public InnerHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        public ProxyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+            //如果不重写这个方法，那么内部类的InnerHolder必须是public static的，
+            // 否则反射的时候无法直接调用构造器构造对象，因为内部类实例化必须依赖外部类对象的存在
+            //return super.onCreateViewHolder(viewGroup, viewType);
+            //可以重写,直接new 返回
             return new InnerHolder(viewGroup);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull InnerHolder innerHolder, int i) {
-        }
-
-
-       @Override
-        public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
-            super.onAttachedToRecyclerView(recyclerView);
-            recyclerView.getContext();
-            Log.i("TAG", "onAttachedToRecyclerView: "+recyclerView.getContext());
-            if (recyclerView.getContext() instanceof FragmentActivity) {
-                vhPoolVM = ViewModelProviders.of((FragmentActivity) recyclerView.getContext()).get(VHPoolVM.class);
-                recyclerView.setRecycledViewPool(vhPoolVM.getRecycledViewPool());
-            }else {
-                throw new IllegalArgumentException(recyclerView.getContext() + " 必须 是FragmentActivity 的子类");
-            }
+        public void onBindViewHolder(@NonNull ProxyViewHolder viewHolder, int i) {
+            //getAdapterModel 返回null，注释掉此处，否则报错
+            //super.onBindViewHolder(viewHolder, i);
         }
 
         @Override
         public int getItemViewType(int position) {
+            //只有一中类型的ViewHolder可以直接指定
             return vhPoolVM.getViewHolderType(InnerHolder.class);
         }
 
@@ -59,11 +54,11 @@ public class OrderListVIewAdapter extends ProxyViewAdapter<OrderListModel,OrderL
     }
 
 
-
-    class InnerHolder extends ProxyViewHolder {
+  public static class InnerHolder extends ProxyViewHolder {
 
         public InnerHolder(@NonNull ViewGroup viewGroup) {
-            super(viewGroup, R.layout.item_order_list_inner);
+            super(viewGroup,R.layout.item_order_list_inner);
         }
     }
 }
+
