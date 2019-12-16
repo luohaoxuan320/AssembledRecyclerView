@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/bg_white_round_13"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="百草味 网红休闲零食特色小吃美食整箱蛋糕早餐手撕面包点心传统糕原味肉松饼1000g…"
+        android:textColor="#333"
+        android:gravity="center_vertical"
+        android:textSize="13sp"
+        />
+</LinearLayout>

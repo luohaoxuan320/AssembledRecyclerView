@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_round_13"
+    android:layout_marginTop="10dp"
+    android:padding="10dp"
+    >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="14sp"
+    android:textColor="#333"
+    android:text="购买清单，请仔细核对赠品  共12种商品120件"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/bg_white_round_13"
+    />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_inner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

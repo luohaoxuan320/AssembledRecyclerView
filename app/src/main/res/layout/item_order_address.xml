@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/bg_white_round_13"
+    android:layout_margin="10dp"
+    >
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/tv_title"
+    android:textSize="14sp"
+    android:textColor="#333"
+    android:text="张佳芳 156****6103"
+    ></TextView>
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:textColor="#333"
+        android:text="北京市大兴区东南6环亦庄开发区经济开发区京东大厦B座18层 10000"
+        />
+</LinearLayout>
