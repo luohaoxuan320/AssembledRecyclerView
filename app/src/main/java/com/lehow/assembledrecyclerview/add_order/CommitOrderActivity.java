@@ -1,12 +1,8 @@
 package com.lehow.assembledrecyclerview.add_order;
 
 
-
 import android.os.Bundle;
-import android.util.Log;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,16 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lehow.assembledrecyclerview.R;
 import com.lehow.assembledrecyclerview.component.AssembledAdapter;
 import com.lehow.assembledrecyclerview.component.IAdapterModel;
-import com.lehow.assembledrecyclerview.component.ProxyViewAdapter;
-import com.lehow.assembledrecyclerview.component.ProxyViewHolder;
-import com.lehow.assembledrecyclerview.component.VHPoolVM;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class CommitOrderActivity extends FragmentActivity {
 
     private RecyclerView recyclerView;
+    private OrderViewModel orderViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +25,8 @@ public class CommitOrderActivity extends FragmentActivity {
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(new MAdapterA());
+        orderViewModel= ViewModelProviders.of(this).get(OrderViewModel.class);
+        orderViewModel.setName("张三");
     }
 
     class MAdapterA extends AssembledAdapter {

@@ -3,6 +3,9 @@ package com.lehow.assembledrecyclerview.component;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -41,6 +44,14 @@ public abstract class ProxyViewAdapter<P extends IAdapterModel,V extends ProxyVi
             }
         }
         return classViewHolder;
+    }
+
+    protected <VM extends ViewModel> VM getViewModel(V viewHolder,Class<VM> vmClass){
+
+        if (viewHolder.itemView.getContext() instanceof FragmentActivity) {
+           return ViewModelProviders.of((FragmentActivity) viewHolder.itemView.getContext()).get(vmClass);
+        }
+        throw new IllegalArgumentException(viewHolder.itemView.getContext() + " 必须 是FragmentActivity 的子类");
     }
 }
 
