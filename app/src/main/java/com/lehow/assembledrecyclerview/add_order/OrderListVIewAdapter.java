@@ -10,7 +10,7 @@ import com.lehow.assembledrecyclerview.component.AssembledAdapter;
 import com.lehow.assembledrecyclerview.component.IAdapterModel;
 import com.lehow.assembledrecyclerview.component.ProxyViewAdapter;
 import com.lehow.assembledrecyclerview.component.ProxyViewHolder;
-public class OrderListVIewAdapter extends ProxyViewAdapter<OrderListModel,OrderListVH,Void> {
+public class OrderListVIewAdapter extends ProxyViewAdapter<OrderListModel,OrderListVH> {
 
     @Override
     public void onBindViewHolder(@NonNull OrderListVH viewHolder, OrderListModel entity) {

@@ -12,11 +12,10 @@ import java.lang.reflect.Type;
 
 /**
  * 将数据AdapterModel映射到ViewHolder上，与数据 强相关
- * @param <P>
- * @param <V>
- * @param <R>
+ * @param <P> 数据类型
+ * @param <V> ViewModel类型
  */
-public abstract class ProxyViewAdapter<P extends IAdapterModel,V extends ProxyViewHolder,R> {
+public abstract class ProxyViewAdapter<P extends IAdapterModel,V extends ProxyViewHolder> {
 
     private Class<V> classViewHolder;
 

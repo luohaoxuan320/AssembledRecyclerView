@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.lehow.assembledrecyclerview.component.ProxyViewAdapter;
 
-public class AddressViewAdapter extends ProxyViewAdapter<AddressModel, AddressViewHolder, String> {
+public class AddressViewAdapter extends ProxyViewAdapter<AddressModel, AddressViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull AddressViewHolder viewHolder, AddressModel entity) {
